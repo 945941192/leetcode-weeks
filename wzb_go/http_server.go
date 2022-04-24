@@ -3,12 +3,14 @@ package main
 import (
     "fmt"
     "net/http"
+    "os"
 )
 
 //say hello to the world
 func sayHello(w http.ResponseWriter, r *http.Request) {
     // 向客户端写数据
-    _, _ = w.Write([]byte("hello world"))
+    // _, _ = w.Write([]byte("hello world"))
+    _, _ = w.Write([]byte(os.Getenv("VERSION")))
 }
 
 func main() {
