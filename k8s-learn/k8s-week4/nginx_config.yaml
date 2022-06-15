@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-cm
+data:
+  fmeng.conf: |-
+    server {
+      listen       80;
+      server_name  www.fmeng.com;
+      location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+      }
+      error_page   500 502 503 504  /50x.html;
+      location = /fmneg.html {
+        root   /usr/share/nginx/html;
+      }
+    }
